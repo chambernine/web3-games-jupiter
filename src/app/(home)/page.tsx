@@ -1,6 +1,5 @@
 import { Container, Icons, Wrapper } from "@/components";
 import { Roadmap } from "@/components/custom/roadmap";
-import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LampContainer } from "@/components/ui/lamp";
@@ -77,7 +76,6 @@ const HomePage = () => {
                   quality={100}
                   className="rounded-lg lg:rounded-xl shadow-2xl ring-1 ring-[hsl(210_40%_98%)/0.1]"
                 />
-                <BorderBeam size={300} duration={10} delay={5} />
               </div>
             </div>
           </div>

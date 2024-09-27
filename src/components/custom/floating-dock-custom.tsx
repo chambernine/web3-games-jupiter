@@ -2,7 +2,6 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
-  IconHome,
   IconDeviceGamepad2,
   IconWallet,
   IconTrophy,
@@ -13,13 +12,6 @@ import {
 
 export function FloatingDockCustom() {
   const links = [
-    {
-      title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/",
-    },
     {
       title: "Games",
       icon: (
@@ -65,7 +57,7 @@ export function FloatingDockCustom() {
   ];
   return (
     <div className="items-center justify-center absolute bottom-8 ">
-      <FloatingDock mobileClassName="absolute bottom-0 left-0" items={links} />
+      <FloatingDock items={links} mobileClassName="absolute bottom-0 " />
     </div>
   );
 }
