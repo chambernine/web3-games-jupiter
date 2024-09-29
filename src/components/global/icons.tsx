@@ -1,58 +1,11 @@
-import { LucideProps } from "lucide-react";
+import { Gamepad2, LucideProps } from "lucide-react";
 
 type IconType = {
   [key: string]: (props: LucideProps) => JSX.Element;
 };
 
 const Icons: IconType = {
-  logo: () => (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 22 22"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect width="22" height="22" rx="4" fill="url(#paint0_linear)" />
-
-      <path
-        d="M11 3L17 6.5V13.5L11 17L5 13.5V6.5L11 3Z"
-        fill="white"
-        fillOpacity="0.2"
-        stroke="white"
-        strokeWidth="1"
-      />
-
-      <rect x="10" y="8" width="2" height="4" fill="white" />
-      <rect x="9" y="9" width="4" height="2" fill="white" />
-
-      <circle cx="7" cy="7" r="1" fill="white" />
-      <circle cx="15" cy="7" r="1" fill="white" />
-      <circle cx="7" cy="13" r="1" fill="white" />
-      <circle cx="15" cy="13" r="1" fill="white" />
-
-      <line x1="7" y1="7" x2="15" y2="7" stroke="white" strokeWidth="0.5" />
-      <line x1="7" y1="13" x2="15" y2="13" stroke="white" strokeWidth="0.5" />
-      <line x1="7" y1="7" x2="7" y2="13" stroke="white" strokeWidth="0.5" />
-      <line x1="15" y1="7" x2="15" y2="13" stroke="white" strokeWidth="0.5" />
-
-      <circle cx="11" cy="15" r="1.5" fill="white" />
-
-      <defs>
-        <linearGradient
-          id="paint0_linear"
-          x1="11"
-          y1="0"
-          x2="11"
-          y2="22"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#007adf" />
-          <stop offset="1" stopColor="#0056a4" />
-        </linearGradient>
-      </defs>
-    </svg>
-  ),
+  logo: () => <Gamepad2 />,
   //   <svg
   //     {...props}
   //     width="120"

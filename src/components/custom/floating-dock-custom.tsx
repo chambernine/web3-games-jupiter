@@ -56,8 +56,8 @@ export function FloatingDockCustom() {
     },
   ];
   return (
-    <div className="items-center justify-center absolute bottom-8 ">
-      <FloatingDock items={links} mobileClassName="absolute bottom-0 " />
+    <div className="items-center justify-center absolute bottom-1 ">
+      <FloatingDock items={links} />
     </div>
   );
 }

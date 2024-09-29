@@ -4,70 +4,95 @@
 
 @layer base {
   :root {
-    --gradient: linear-gradient(to top left, #007adf, #00ecbc);
 
-    --background: 220 65% 3.52%;
-    --foreground: 220 10% 97.2%;
+    /* Light theme variables */
+    --light-background: 0 0% 100%;
+    --light-foreground: 220 25% 2.8%;
+    --light-muted: 220 15% 86.8%;
+    --light-muted-foreground: 220 20% 45.6%;
+    --light-popover: 220 15% 94.3%;
+    --light-card: 220 15% 94.3%;
+    --light-border: 220 15% 86.8%;
+    --light-input: 220 15% 86.8%;
+    --light-primary: 220 90% 56%;
+    --light-primary-foreground: 220 10% 97.2%;
+    --light-secondary: 220 15% 86.8%;
+    --light-secondary-foreground: 220 25% 2.8%;
+    --light-accent: 220 15% 86.8%;
+    --light-accent-foreground: 220 25% 2.8%;
+    --light-destructive: 0 85% 69.4%;
+    --light-destructive-foreground: 0 0% 98%;
+    --light-ring: 220 90% 56%;
 
-    --muted: 220 50% 13.2%;
-    --muted-foreground: 220 10% 54.4%;
+    /* Dark theme variables */
+    --dark-background: 220 65% 3.52%;
+    --dark-foreground: 220 10% 97.2%;
+    --dark-muted: 220 50% 13.2%;
+    --dark-muted-foreground: 220 10% 54.4%;
+    --dark-popover: 220 45% 5.72%;
+    --dark-card: 220 45% 5.72%;
+    --dark-border: 220 50% 13.2%;
+    --dark-input: 220 50% 13.2%;
+    --dark-primary: 220 100% 44%;
+    --dark-primary-foreground: 220 10% 97.2%;
+    --dark-secondary: 220 50% 13.2%;
+    --dark-secondary-foreground: 220 10% 97.2%;
+    --dark-accent: 220 50% 13.2%;
+    --dark-accent-foreground: 220 10% 97.2%;
+    --dark-destructive: 0 62.8% 30.6%;
+    --dark-destructive-foreground: 220 10% 97.2%;
+    --dark-ring: 220 100% 44%;
 
-    --popover: 220 45% 5.72%;
-    --popover-foreground: 220 10% 97.2%;
-
-    --card: 220 45% 5.72%;
-    --card-foreground: 220 10% 97.2%;
-
-    --border: 220 50% 13.2%;
-    --input: 220 50% 13.2%;
-
-    --primary: 220 100% 44%;
-    --primary-foreground: 220 10% 97.2%;
-
-    --secondary: 220 50% 13.2%;
-    --secondary-foreground: 220 10% 97.2%;
-
-    --accent: 220 50% 13.2%;
-    --accent-foreground: 220 10% 97.2%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 220 10% 97.2%;
-
-    --ring: 220 100% 44%;
-
+    /* Common variables */
     --radius: 0.5rem;
+
+    /* Set default (light) theme */
+    --background: var(--light-background);
+    --foreground: var(--light-foreground);
+    --muted: var(--light-muted);
+    --muted-foreground: var(--light-muted-foreground);
+    --popover: var(--light-popover);
+    --popover-foreground: var(--light-foreground);
+    --card: var(--light-card);
+    --card-foreground: var(--light-foreground);
+    --border: var(--light-border);
+    --input: var(--light-input);
+    --primary: var(--light-primary);
+    --primary-foreground: var(--light-primary-foreground);
+    --secondary: var(--light-secondary);
+    --secondary-foreground: var(--light-secondary-foreground);
+    --accent: var(--light-accent);
+    --accent-foreground: var(--light-accent-foreground);
+    --destructive: var(--light-destructive);
+    --destructive-foreground: var(--light-destructive-foreground);
+    --ring: var(--light-ring);
   }
 
   .dark {
-    --background: 216 100% 98.04%;
-    --foreground: 213.6 100% 4.9%;
+    --background: var(--dark-background);
+    --foreground: var(--dark-foreground);
+    --muted: var(--dark-muted);
+    --muted-foreground: var(--dark-muted-foreground);
+    --popover: var(--dark-popover);
+    --popover-foreground: var(--dark-foreground);
+    --card: var(--dark-card);
+    --card-foreground: var(--dark-foreground);
+    --border: var(--dark-border);
+    --input: var(--dark-input);
+    --primary: var(--dark-primary);
+    --primary-foreground: var(--dark-primary-foreground);
+    --secondary: var(--dark-secondary);
+    --secondary-foreground: var(--dark-secondary-foreground);
+    --accent: var(--dark-accent);
+    --accent-foreground: var(--dark-accent-foreground);
+    --destructive: var(--dark-destructive);
+    --destructive-foreground: var(--dark-destructive-foreground);
+    --ring: var(--dark-ring);
+  }
 
-    --primary: 214.12 100% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --card: 216 100% 98.04%;
-    --card-foreground: 213.6 100% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 213.6 100% 4.9%;
-
-    --secondary: 214.74 100% 92.55%;
-    --secondary-foreground: 216 100% 0.98%;
-
-    --muted: 213.6 100% 95.1%;
-    --muted-foreground: 0 0% 40%;
-
-    --accent: 213.6 100% 95.1%;
-    --accent-foreground: 214.12 100% 50%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 0 0% 90.2%;
-    --input: 0 0% 90.2%;
-    --ring: 214.12 100% 50%;
-
-    --radius: 0.5rem;
+  .game-theme {
+    --background: var(--dark-background);
+    --foreground: var(--dark-foreground);
   }
 }
 
@@ -84,7 +109,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  color: hsl(var(--primary));
   background-color: hsl(var(--primary));
   border-radius: 8px;
 }

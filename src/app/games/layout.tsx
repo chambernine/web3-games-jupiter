@@ -7,9 +7,11 @@ interface Props {
 
 const GameLayout = ({ children }: Props) => {
   return (
-    <div className="flex flex-col items-center w-full">
-      {children}
-      <FloatingDockCustom />
+    <div className="game-theme flex flex-col items-center w-full h-screen relative overflow-hidden">
+      <div className="flex-grow w-full overflow-y-auto">{children}</div>
+      <div className="fixed bottom-0 left-0 right-0 flex justify-center">
+        <FloatingDockCustom />
+      </div>
     </div>
   );
 };
