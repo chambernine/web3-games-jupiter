@@ -53,48 +53,47 @@ const gameData = [
 
 export default function Page() {
   return (
-    <Container className="flex items-center justify-center">
-      <div className="grid gap-8 w-full p-8 sm:grid-cols-1 md:grid-cols-2 max-w-7x lg:grid-cols-3  xl:grid-cols-4">
+    <Container className="mx-auto px-4 py-8">
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {gameData.map((game, index) => (
           <CardContainer key={index} className="inter-var">
-            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[320px] h-[auto] rounded-xl p-6 border ">
+            <CardBody className="relative group/card w-[320px] h-full rounded-xl p-6 border border-purple-500/20 bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-sm">
               <CardItem
                 translateZ="50"
-                className="text-xl font-bold text-neutral-600 dark:text-white"
+                className="text-xl font-bold text-purple-100"
               >
                 {game.title}
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                className="text-indigo-200 text-sm mt-2"
               >
                 {game.description}
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={game.image}
-                  height="500"
-                  width="300"
-                  className="h-40 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
+                  height={200}
+                  width={300}
+                  className="w-full h-40 object-cover rounded-xl group-hover/card:shadow-xl shadow-purple-500/20"
+                  alt={`${game.title} thumbnail`}
                 />
               </CardItem>
               <div className="flex justify-between items-center mt-6">
                 <CardItem
                   translateZ={20}
                   as="button"
-                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                  className="px-4 py-2 rounded-xl text-xs font-normal text-purple-100 border border-purple-500/50 hover:bg-purple-500/20 transition-colors"
                 >
                   Details
                 </CardItem>
-
                 <CardItem
                   translateZ={20}
                   as={Link}
                   href={game.link}
                   target="_blank"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold hover:from-purple-700 hover:to-indigo-700 transition-colors"
                 >
                   Play now
                 </CardItem>

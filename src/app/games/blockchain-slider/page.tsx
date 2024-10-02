@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const GRID_SIZE = 4;
 const CELL_COUNT = GRID_SIZE * GRID_SIZE;
@@ -149,60 +149,98 @@ export default function BlockchainSlider() {
       .padStart(2, "0")}`;
   };
 
+  const tileVariants: Variants = {
+    initial: { scale: 0, rotate: -180 },
+    enter: { scale: 1, rotate: 0, transition: { duration: 0.3 } },
+    exit: { scale: 0, rotate: 180, transition: { duration: 0.3 } },
+  };
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-[hsl(220,65%,3.52%)] flex justify-center items-center p-4">
-      <div className="w-full max-w-md">
-        <h1 className="text-4xl font-bold text-center mb-8 text-[hsl(220,10%,97.2%)]">
+    <div className="min-h-screen bg-gradient-to-br from-[#1a1b26] to-[#24283b] flex justify-center items-center p-4">
+      <motion.div
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h1 className="text-4xl font-bold text-center mb-8 text-[#7aa2f7]">
           Blockchain Slider
         </h1>
-        <div className="flex justify-between mb-4 text-[hsl(220,10%,97.2%)]">
+        <div className="flex justify-between mb-4 text-[#a9b1d6]">
           <div>Time: {formatTime(timeSpent)}</div>
           <div>Moves: {moveCount}</div>
         </div>
-        <div className="grid grid-cols-4 gap-2 bg-[hsl(220,45%,5.72%)] p-4 rounded-lg shadow-lg aspect-square">
-          {tiles.map((tile, index) => (
-            <motion.button
-              key={tile}
-              className={`w-full aspect-square rounded-lg text-2xl font-bold flex items-center justify-center ${
-                tile === EMPTY_INDEX
-                  ? "bg-[hsl(220,50%,13.2%)]"
-                  : "bg-[hsl(220,100%,44%)] hover:bg-[hsl(220,100%,54%)]"
-              } ${
-                isComplete
-                  ? "bg-[hsl(220,50%,13.2%)] hover:bg-[hsl(220,50%,23.2%)]"
-                  : ""
-              }`}
-              onClick={() => moveTile(index)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              layout
-            >
-              {tile !== EMPTY_INDEX && (
-                <span className="text-[hsl(220,10%,97.2%)] text-responsive">
-                  {tile + 1}
-                </span>
-              )}
-            </motion.button>
-          ))}
-        </div>
-        <div className="mt-8 flex justify-center space-x-4">
+        <motion.div
+          className="grid grid-cols-4 gap-2 bg-[#1f2335] p-4 rounded-lg shadow-lg aspect-square"
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          <AnimatePresence mode="popLayout">
+            {tiles.map((tile, index) => (
+              <motion.button
+                key={tile}
+                layoutId={`tile-${tile}`}
+                variants={tileVariants}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`w-full aspect-square rounded-lg text-2xl font-bold flex items-center justify-center ${
+                  tile === EMPTY_INDEX
+                    ? "bg-[#24283b]"
+                    : "bg-gradient-to-br from-[#7aa2f7] to-[#2ac3de] hover:from-[#7dcfff] hover:to-[#73daca]"
+                } ${isComplete ? "bg-[#24283b] hover:bg-[#2ac3de]" : ""}`}
+                onClick={() => moveTile(index)}
+              >
+                {tile !== EMPTY_INDEX && (
+                  <motion.span
+                    className="text-[#1a1b26] text-responsive"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    {tile + 1}
+                  </motion.span>
+                )}
+              </motion.button>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+        <motion.div
+          className="mt-8 flex justify-center space-x-4"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <button
-            className="bg-[hsl(220,50%,13.2%)] hover:bg-[hsl(220,50%,23.2%)] text-[hsl(220,10%,97.2%)] font-bold py-2 px-4 rounded"
+            className="bg-[#7aa2f7] hover:bg-[#7dcfff] text-[#1a1b26] font-bold py-2 px-4 rounded"
             onClick={shuffleTiles}
           >
             {isPlaying ? "Restart" : "Start Game"}
           </button>
           {isPlaying && (
             <button
-              className="bg-[hsl(0,100%,30%)] hover:bg-[hsl(0,100%,40%)] text-[hsl(220,10%,97.2%)] font-bold py-2 px-4 rounded"
+              className="bg-[#f7768e] hover:bg-[#ff9e64] text-[#1a1b26] font-bold py-2 px-4 rounded"
               onClick={surrender}
             >
               Surrender
             </button>
           )}
-        </div>
+        </motion.div>
         {isPlaying && (
-          <div className="mt-4 text-center text-[hsl(220,10%,97.2%)]">
+          <div className="mt-4 text-center text-[#a9b1d6]">
             Use arrow keys or click tiles to move them.
           </div>
         )}
@@ -212,17 +250,17 @@ export default function BlockchainSlider() {
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
-              className="fixed inset-0 flex items-center justify-center bg-[hsl(220,65%,3.52%)] bg-opacity-50"
+              className="fixed inset-0 flex items-center justify-center bg-[#1a1b26] bg-opacity-80"
             >
-              <div className="bg-[hsl(220,45%,5.72%)] p-8 rounded-lg text-center">
-                <h2 className="text-3xl font-bold mb-4 text-[hsl(220,10%,97.2%)]">
+              <div className="bg-[#1f2335] p-8 rounded-lg text-center">
+                <h2 className="text-3xl font-bold mb-4 text-[#7aa2f7]">
                   Congratulations!
                 </h2>
-                <p className="text-xl mb-4 text-[hsl(220,10%,97.2%)]">{`You've solved the puzzle in ${formatTime(
+                <p className="text-xl mb-4 text-[#a9b1d6]">{`You've solved the puzzle in ${formatTime(
                   timeSpent
                 )} with ${moveCount} moves!`}</p>
                 <button
-                  className="bg-[hsl(220,100%,44%)] hover:bg-[hsl(220,100%,54%)] text-[hsl(220,10%,97.2%)] font-bold py-2 px-4 rounded"
+                  className="bg-[#7aa2f7] hover:bg-[#7dcfff] text-[#1a1b26] font-bold py-2 px-4 rounded"
                   onClick={() => setShowCongrats(false)}
                 >
                   Close
@@ -231,7 +269,7 @@ export default function BlockchainSlider() {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </div>
   );
 }

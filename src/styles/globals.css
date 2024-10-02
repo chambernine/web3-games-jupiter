@@ -90,10 +90,6 @@
     --ring: var(--dark-ring);
   }
 
-  .game-theme {
-    --background: var(--dark-background);
-    --foreground: var(--dark-foreground);
-  }
 }
 
 ::selection {
