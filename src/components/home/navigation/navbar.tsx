@@ -4,23 +4,39 @@ import { Menu } from "lucide-react";
 import { Icons } from "@/components";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const Navbar = () => {
   const NavItems = () => (
     <ul className="flex flex-col md:flex-row items-start md:items-center justify-center gap-4 md:gap-8">
-      <Link href="/games" className="hover:text-foreground/80 text-sm">
+      <Link
+        href="/games"
+        className="hover:text-primary text-sm transition-colors"
+      >
         Games
       </Link>
-      <Link href="/marketplace" className="hover:text-foreground/80 text-sm">
+      <Link
+        href="/marketplace"
+        className="hover:text-primary text-sm transition-colors"
+      >
         Marketplace
       </Link>
-      <Link href="/roadmap" className="hover:text-foreground/80 text-sm">
+      <Link
+        href="/roadmap"
+        className="hover:text-primary text-sm transition-colors"
+      >
         Roadmap
       </Link>
-      <Link href="/wallet" className="hover:text-foreground/80 text-sm">
+      <Link
+        href="/wallet"
+        className="hover:text-primary text-sm transition-colors"
+      >
         Wallet
       </Link>
-      <Link href="/community" className="hover:text-foreground/80 text-sm">
+      <Link
+        href="/community"
+        className="hover:text-primary text-sm transition-colors"
+      >
         Community
       </Link>
     </ul>
@@ -36,17 +52,20 @@ const Navbar = () => {
         <nav className="hidden md:block">
           <NavItems />
         </nav>
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" className="md:hidden p-0">
-              <Menu />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <NavItems />
-          </SheetContent>
-        </Sheet>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" className="md:hidden p-0">
+                <Menu />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <NavItems />
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

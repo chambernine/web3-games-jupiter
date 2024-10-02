@@ -21,13 +21,13 @@ const HomePage = () => {
       <Wrapper>
         <Container>
           <div className="flex flex-col items-center justify-center py-20 h-full">
-            <button className="group relative grid overflow-hidden rounded-full px-6 py-2 shadow-[0_1000px_0_0_hsl(216_34%_17%)_inset] transition-colors duration-200">
+            <button className="group relative grid overflow-hidden rounded-full px-6 py-2 shadow-[0_1000px_0_0_hsl(var(--background))_inset] transition-colors duration-200">
               <span>
                 <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
               </span>
-              <span className="backdrop absolute inset-[1px] rounded-full bg-[hsl(224_71%_4%)] transition-colors duration-200 group-hover:bg-[hsl(223_47%_11%)]" />
-              <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-[hsl(210_40%_98%)/0.4]"></span>
-              <span className="z-10 py-1 text-sm text-[hsl(210_40%_98%)] flex items-center justify-center gap-2">
+              <span className="backdrop absolute inset-[1px] rounded-full bg-background transition-colors duration-200 group-hover:bg-muted" />
+              <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-foreground/0.4"></span>
+              <span className="z-10 py-1 text-sm text-foreground flex items-center justify-center gap-2">
                 <Image
                   src="/icons/sparkles-dark.svg"
                   alt="✨"
@@ -41,10 +41,10 @@ const HomePage = () => {
             </button>
 
             <div className="flex flex-col items-center mt-10 max-w-4xl w-11/12 md:w-full">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl md:!leading-tight font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[hsl(210_40%_98%)] to-[hsl(215.4_16.3%_56.9%)]">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl md:!leading-tight font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-foreground to-muted-foreground">
                 Conquer the Metaverse
               </h1>
-              <p className="text-lg md:text-xl text-[hsl(215.4_16.3%_56.9%)] mt-8 text-center max-w-2xl">
+              <p className="text-lg md:text-xl text-muted-foreground mt-8 text-center max-w-2xl">
                 Embark on epic quests, build alliances, and earn real rewards in
                 our blockchain-powered gaming universe.
               </p>
@@ -58,7 +58,7 @@ const HomePage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-[hsl(210_40%_98%)/0.2] text-[hsl(210_40%_98%)] hover:bg-[hsl(210_40%_98%)/0.1] transition-all duration-300"
+                  className="rounded-full border-border text-foreground hover:bg-primary/10 transition-all duration-300"
                 >
                   Explore Marketplace
                 </Button>
@@ -66,15 +66,15 @@ const HomePage = () => {
             </div>
 
             <div className="relative flex items-center py-20 md:py-32 w-full">
-              <div className="absolute top-1/2 left-1/2 -z-10 w-full h-full -translate-x-1/2 -translate-y-1/2 blur-[10rem] bg-gradient-to-r from-[hsl(280_100%_60%)/0.3] via-[hsl(190_100%_50%)/0.3] to-[hsl(330_100%_60%)/0.3]"></div>
-              <div className="-m-2 rounded-xl p-2 ring-1 ring-inset ring-[hsl(210_40%_98%)/0.2] lg:-m-4 lg:rounded-2xl bg-[hsl(224_71%_4%)/0.8] backdrop-blur-xl">
+              <div className="absolute top-1/2 left-1/2 -z-10 w-full h-full -translate-x-1/2 -translate-y-1/2 blur-[10rem] bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30"></div>
+              <div className="-m-2 rounded-xl p-2 ring-1 ring-inset ring-border lg:-m-4 lg:rounded-2xl bg-background/80 backdrop-blur-xl">
                 <Image
                   src="/assets/preview.webp"
                   alt="Game Preview"
                   width={1200}
                   height={675}
                   quality={100}
-                  className="rounded-lg lg:rounded-xl shadow-2xl ring-1 ring-[hsl(210_40%_98%)/0.1]"
+                  className="rounded-lg lg:rounded-xl shadow-2xl ring-1 ring-border"
                 />
               </div>
             </div>

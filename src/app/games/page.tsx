@@ -57,17 +57,17 @@ export default function Page() {
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {gameData.map((game, index) => (
           <CardContainer key={index} className="inter-var">
-            <CardBody className="relative group/card w-[320px] h-full rounded-xl p-6 border border-purple-500/20 bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-sm">
+            <CardBody className="relative group/card w-[320px] h-full rounded-xl p-6 border border-border/20 bg-gradient-to-br from-background/80 to-muted/30 backdrop-blur-sm">
               <CardItem
                 translateZ="50"
-                className="text-xl font-bold text-purple-100"
+                className="text-xl font-bold text-foreground"
               >
                 {game.title}
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-indigo-200 text-sm mt-2"
+                className="text-muted-foreground text-sm mt-2"
               >
                 {game.description}
               </CardItem>
@@ -76,7 +76,7 @@ export default function Page() {
                   src={game.image}
                   height={200}
                   width={300}
-                  className="w-full h-40 object-cover rounded-xl group-hover/card:shadow-xl shadow-purple-500/20"
+                  className="w-full h-40 object-cover rounded-xl group-hover/card:shadow-xl shadow-primary/20"
                   alt={`${game.title} thumbnail`}
                 />
               </CardItem>
@@ -84,7 +84,7 @@ export default function Page() {
                 <CardItem
                   translateZ={20}
                   as="button"
-                  className="px-4 py-2 rounded-xl text-xs font-normal text-purple-100 border border-purple-500/50 hover:bg-purple-500/20 transition-colors"
+                  className="px-4 py-2 rounded-xl text-xs font-normal text-foreground bg-background/50 border border-border/50 hover:bg-primary/20 transition-colors"
                 >
                   Details
                 </CardItem>
@@ -93,7 +93,7 @@ export default function Page() {
                   as={Link}
                   href={game.link}
                   target="_blank"
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold hover:from-purple-700 hover:to-indigo-700 transition-colors"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/80 to-secondary/80 text-primary-foreground text-xs font-bold hover:from-primary hover:to-secondary transition-colors"
                 >
                   Play now
                 </CardItem>

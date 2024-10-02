@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from "@/config";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
 
 const font = Inter({ subsets: ["latin"] });
@@ -21,7 +21,7 @@ export default function RootLayout({
           font.className
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>
