@@ -92,7 +92,6 @@ export default function Page() {
                   translateZ={20}
                   as={Link}
                   href={game.link}
-                  target="_blank"
                   className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary/80 to-secondary/80 text-primary-foreground text-xs font-bold hover:from-primary hover:to-secondary transition-colors"
                 >
                   Play now

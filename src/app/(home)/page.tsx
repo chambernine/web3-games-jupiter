@@ -49,7 +49,7 @@ const HomePage = () => {
                 our blockchain-powered gaming universe.
               </p>
               <div className="flex flex-col md:flex-row gap-4 mt-10 md:mt-12 w-full justify-center">
-                <Link href={"/games"}>
+                <Link href={"/games"} target="_blank">
                   <Button size="lg" className="w-full rounded-full">
                     Start Your Adventure
                     <ArrowRight className="w-5 h-5 ml-2" />

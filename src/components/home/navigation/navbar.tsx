@@ -11,6 +11,7 @@ const Navbar = () => {
     <ul className="flex flex-col md:flex-row items-start md:items-center justify-center gap-4 md:gap-8">
       <Link
         href="/games"
+        target="_blank"
         className="hover:text-primary text-sm transition-colors"
       >
         Games

@@ -181,7 +181,7 @@ export default function BlockchainSlider() {
           <div>Moves: {moveCount}</div>
         </div>
         <motion.div
-          className="grid grid-cols-4 gap-2 bg-card p-4 rounded-lg shadow-lg aspect-square"
+          className="grid grid-cols-4 gap-2 bg-card p-4 rounded-lg shadow-lg aspect-square bg-gradient-to-br from-gray-900 to-gray-600"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -211,9 +211,6 @@ export default function BlockchainSlider() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <span className="absolute inset-0 flex items-center justify-center text-[#00FFFF] opacity-75 blur-[2px]">
-                      {tile + 1}
-                    </span>
                     <span className="relative z-10 font-['Orbitron',_sans-serif] text-4xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#00FFFF] to-[#FF00FF]">
                       {tile + 1}
                     </span>
