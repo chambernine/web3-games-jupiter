@@ -3,7 +3,12 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Icons } from "@/components";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const Navbar = () => {
@@ -63,6 +68,7 @@ const Navbar = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle />
               <NavItems />
             </SheetContent>
           </Sheet>

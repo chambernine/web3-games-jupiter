@@ -14,11 +14,11 @@ const gameData = [
     link: "/games/blockchain-slider",
   },
   {
-    title: "CryptoLogic",
-    description: "Solve complex puzzles to earn crypto rewards",
+    title: "Number Clearing",
+    description: "Clear numbers strategically to earn crypto rewards",
     image:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://example.com/cryptologic",
+    link: "/games/number-clearing",
   },
   {
     title: "NFT Sudoku",

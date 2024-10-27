@@ -173,7 +173,7 @@ export default function BlockchainSlider() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold text-center mb-8 relative z-10 font-['Orbitron',_sans-serif] tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#00FFFF] to-[#FF00FF]">
+        <h1 className="text-4xl font-bold text-center mb-8 relative z-10 font-['Comic_Neue','Chalkboard','Orbitron',sans-serif] tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#00FFFF] to-[#FF00FF]">
           Blockchain Slider
         </h1>
         <div className="flex justify-between mb-4 text-muted-foreground">
@@ -181,7 +181,7 @@ export default function BlockchainSlider() {
           <div>Moves: {moveCount}</div>
         </div>
         <motion.div
-          className="grid grid-cols-4 gap-2 bg-card p-4 rounded-lg shadow-lg aspect-square bg-gradient-to-br from-gray-900 to-gray-600"
+          className="grid grid-cols-4 gap-2 bg-card p-4 rounded-xl shadow-lg aspect-square bg-gray-500"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -197,10 +197,14 @@ export default function BlockchainSlider() {
                 exit="exit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full aspect-square rounded-lg text-2xl font-bold flex items-center justify-center ${
+                className={`w-full aspect-square rounded-xl text-2xl font-bold flex items-center justify-center ${
                   tile === EMPTY_INDEX
-                    ? "bg-gray-800"
-                    : "bg-gradient-to-br from-gray-900 to-gray-700 border-2 border-[#00FFFF]/30"
+                    ? "bg-[#879e8d] dark:bg-[#4c5549]"
+                    : `bg-[#C9E9D2] dark:bg-[#697565] shadow-[inset_0_0_0_4px_rgba(0,0,0,0.1),inset_8px_4px_2px_rgba(0,0,0,0.1)] 
+                    hover:shadow-[inset_0_0_0_4px_rgba(0,0,0,0.1),inset_0_-3px_0_rgba(0,0,0,0.1)]
+                    hover:brightness-105
+                    active:shadow-[inset_0_0_0_4px_rgba(0,0,0,0.1),inset_0_2px_0_rgba(0,0,0,0.1)]
+                    `
                 } ${isComplete ? "bg-gray-800 hover:bg-gray-700" : ""}`}
                 onClick={() => moveTile(index)}
               >
@@ -211,7 +215,12 @@ export default function BlockchainSlider() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <span className="relative z-10 font-['Orbitron',_sans-serif] text-4xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#00FFFF] to-[#FF00FF]">
+                    <span
+                      className="relative z-10 font-['Comic_Neue','Chalkboard',sans-serif] text-5xl font-bold tracking-wider text-white select-none"
+                      style={{
+                        textShadow: "1px 1px 0 rgba(0,0,0,0.1)",
+                      }}
+                    >
                       {tile + 1}
                     </span>
                   </motion.span>
